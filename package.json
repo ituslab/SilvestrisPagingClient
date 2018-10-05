@@ -1,0 +1,14 @@
+{
+  "name": "silvestris-client",
+  "version": "1.0.0",
+  "description": "Felis Silvestris client library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "itpolsri",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.20.2"
+  }
+}
