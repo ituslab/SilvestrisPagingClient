@@ -1,14 +1,22 @@
 {
-  "name": "silvestris-client",
+  "name": "@felis/silvestris-paging",
   "version": "1.0.0",
-  "description": "Felis Silvestris client library",
+  "description": "Felis Silvestris paging client library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
   },
   "author": "itpolsri",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.20.2"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
