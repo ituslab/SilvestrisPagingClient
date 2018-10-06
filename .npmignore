@@ -1,0 +1,7 @@
+dist
+node_modules
+src/a.js
+static
+.babelrc
+.gitignore
+webpack.config.js

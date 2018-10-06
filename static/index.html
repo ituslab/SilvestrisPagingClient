@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Page</title>
+    <style>
+        
+        .page-el-child {
+            color: white;
+            cursor: pointer;
+            padding:3px;
+            display: inline-block;
+            background-color: dodgerblue;
+            margin: 0 5px;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Paging client</h1>
+
+    <div>
+        <table border="2">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+
+
+    <div id="page-el-container"></div>
+
+
+</body>
+    <script src="/vendors~a~index.bundle.js"></script>
+    <script src="/index.bundle.js"></script>
+    <script src="/a.bundle.js"></script>
+</html>

@@ -1,10 +1,9 @@
 function requestPage(
     pagingServerPath,
     pagingServerParam,
-    htmlElOptions,
-    onError
+    htmlElOptions
 ){
-    fetch(pagingServerPath)
+    fetch(pagingServerPath+pagingServerParam)
         .then(r=> r.json())
         .then(rJson=>{
             const {
@@ -13,14 +12,17 @@ function requestPage(
                 pageEl
             } = rJson
 
+
             const {
                 pageElContainerId,
-                tbodyId,
+                tBodyId,
                 pageElChildClassName
             } = htmlElOptions
 
             $(pageElContainerId).empty()
-            $(tbodyId).empty()
+            $(tBodyId).empty()
+
+
 
             // looping data into table
             data.forEach(v=>{
@@ -28,7 +30,8 @@ function requestPage(
                 Object.keys(v).forEach(x=>{
                     tdsEl += `<td>${v[x]}</td>`
                 })
-                $(tbodyId).append(`
+
+                $(tBodyId).append(`
                     <tr>
                         ${tdsEl}
                     </tr>
@@ -38,66 +41,43 @@ function requestPage(
 
             // looping page el
             pageEl.forEach(e=>{
-                $(pageElContainerId).append(`
-                    <a
-                        class="${pageElChildClassName}"
-                        onclick="
-                            requestPageDefault(
-                                '${pagingServerPath}',
-                                '?${pagingServerParam}=${e}',
-                                ${htmlElOptions},
-                                ${onError}
-                            )
-                        "
-                        >
-                        ${e}
-                    </a>
-                `)
+                let newPageEl = document.createElement('a')
+                newPageEl.className = pageElChildClassName
+                $(newPageEl).on('click',ev=>{
+                    requestPage(pagingServerPath , `?page=${e}` , htmlElOptions)
+                })
+                newPageEl.innerHTML = e
+
+                $(pageElContainerId).append(newPageEl)
             })
 
             const firstEl = pageEl[0]
 
             if(firstEl !== 1) {
                 const beforeFirstEl = pageEl[0] - 1
-                $(pageElContainerId).prepend(`
-                    <a
-                        class="${pageElChildClassName}"
-                        onclick="
-                            requestPageDefault(
-                                '${pagingServerPath}',
-                                '?${pagingServerParam}=${beforeFirstEl}',
-                                ${htmlElOptions},
-                                ${onError}
-                            )
-                        "
-                        >
-                        BACK
-                    </a>
-                `)
+                let newPageEl = document.createElement('a')
+                newPageEl.className = pageElChildClassName
+                newPageEl.innerHTML = 'BACK'
+                $(newPageEl).on('click',e=>{
+                    requestPage(pagingServerPath , `?page=${beforeFirstEl}` , htmlElOptions)
+                })
+                $(pageElContainerId).prepend(newPageEl)
             }
 
             if(!isLast){
                 const lastEl = pageEl[pageEl.length - 1] + 1
-                $(pageElContainerId).append(`
-                    <a
-                        class="${pageElChildClassName}"
-                        onclick="
-                            requestPageDefault(
-                                '${pagingServerPath}',
-                                '?${pagingServerParam}=${lastEl}',
-                                ${htmlElOptions},
-                                ${onError}
-                            )
-                        "
-                        >
-                        NEXT
-                    </a>
-                `)
+                let newPageEl = document.createElement('a')
+                newPageEl.className = pageElChildClassName
+                newPageEl.innerHTML = 'NEXT'
+                $(newPageEl).on('click',e=>{
+                    requestPage(pagingServerPath , `?page=${lastEl}`,htmlElOptions)
+                })
+                $(pageElContainerId).append(newPageEl)
             }
 
         })
         .catch(err=>{
-            onError(err)
+            console.error(err)
         })
 }
 

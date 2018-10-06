@@ -1,17 +1,27 @@
 const path = require("path")
+const UglifyJS = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-    entry:'./src/index.js',
+    entry:{
+        index: './src/index.js',
+        a:'./src/a.js'
+    },
+    devtool: 'inline-source-map',
     output:{
         path:path.join(__dirname , 'dist'),
-        filename:'index.bundle.js'
+        filename:'[name].bundle.js'
     },
     devServer:{
-        publicPath:'/assets/',
-        contentBase: path.join(__dirname , 'static'),
+        contentBase: [path.join(__dirname , 'dist'), path.join(__dirname , 'static')],
         compress: true,
         port: 9090
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        },
+        minimizer:[new UglifyJS()]
     },
     module:{
         rules:[
