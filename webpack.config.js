@@ -17,9 +17,9 @@ module.exports = {
         port: 9090
     },
     optimization: {
-        // splitChunks: {
-        //     chunks: 'all'
-        // },
+        splitChunks: {
+            chunks: 'all'
+        },
         minimizer:[new UglifyJS()]
     },
     module:{
