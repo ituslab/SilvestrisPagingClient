@@ -1,7 +1,8 @@
 function requestPage(
     pagingServerPath,
     pagingServerParam,
-    htmlElOptions
+    htmlElOptions,
+    onError
 ){
     fetch(pagingServerPath+pagingServerParam)
         .then(r=> r.json())
@@ -44,7 +45,7 @@ function requestPage(
                 let newPageEl = document.createElement('a')
                 newPageEl.className = pageElChildClassName
                 $(newPageEl).on('click',ev=>{
-                    requestPage(pagingServerPath , `?page=${e}` , htmlElOptions)
+                    requestPage(pagingServerPath , `?page=${e}` , htmlElOptions , onError)
                 })
                 newPageEl.innerHTML = e
 
@@ -59,7 +60,7 @@ function requestPage(
                 newPageEl.className = pageElChildClassName
                 newPageEl.innerHTML = 'BACK'
                 $(newPageEl).on('click',e=>{
-                    requestPage(pagingServerPath , `?page=${beforeFirstEl}` , htmlElOptions)
+                    requestPage(pagingServerPath , `?page=${beforeFirstEl}` , htmlElOptions, onError)
                 })
                 $(pageElContainerId).prepend(newPageEl)
             }
@@ -70,14 +71,14 @@ function requestPage(
                 newPageEl.className = pageElChildClassName
                 newPageEl.innerHTML = 'NEXT'
                 $(newPageEl).on('click',e=>{
-                    requestPage(pagingServerPath , `?page=${lastEl}`,htmlElOptions)
+                    requestPage(pagingServerPath , `?page=${lastEl}`,htmlElOptions , onError)
                 })
                 $(pageElContainerId).append(newPageEl)
             }
 
         })
         .catch(err=>{
-            console.error(err)
+            onError(err)
         })
 }
 

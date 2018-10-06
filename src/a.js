@@ -7,5 +7,8 @@ const htmlEltOpts = {
 }
 
 requestPage('http://localhost:8080/Paging/api.php','?page=1',
-    htmlEltOpts
+    htmlEltOpts,
+    err=>{
+        console.error(err)
+    }
 )
