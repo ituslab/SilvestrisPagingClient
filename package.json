@@ -8,7 +8,7 @@
     "start": "webpack-dev-server"
   },
   "files": [
-    "dist/vendors~index.bundle.js"
+    "dist/"
   ],
   "author": "itpolsri",
   "license": "ISC",
