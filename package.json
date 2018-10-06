@@ -1,5 +1,5 @@
 {
-  "name": "@itpolsri/silvestris-paging",
+  "name": "felis-silvestris-paging",
   "version": "1.0.0",
   "description": "Felis Silvestris paging client library",
   "main": "index.js",

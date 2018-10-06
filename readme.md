@@ -1,8 +1,9 @@
 ## Silvestris Paging Client Library
 
 ### How to use this ?
+
 ```
-import {requestPage} from './index';
+import {requestPage} from 'felis-silvestris-paging';
 
 const htmlEltOpts = {
     pageElContainerId: '#page-el-container',

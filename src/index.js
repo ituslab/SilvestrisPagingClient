@@ -82,6 +82,6 @@ function requestPage(
         })
 }
 
-export {
-    requestPage,
+module.exports = {
+    requestPage
 }
