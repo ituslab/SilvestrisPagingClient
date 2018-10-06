@@ -81,6 +81,6 @@ function requestPage(
             onError(err)
         })
 }
-export default {
+export {
     requestPage
 }
