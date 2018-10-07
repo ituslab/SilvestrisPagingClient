@@ -11,6 +11,20 @@ const htmlEltOpts = {
     pageElChildClassName: 'page-el-child'
 }
 
+```
+
+```
+requestPage('YOUR_SILVESTRIS_PAGING_ENDPOINT','SILVESTRIS_QUERY_PARAM',
+    htmlEltOpts,
+    err=>{
+        console.error(err)
+    }
+)
+
+```
+
+`example:`
+```
 requestPage('http://localhost:8080/Paging/api.php','?page=1',
     htmlEltOpts,
     err=>{
