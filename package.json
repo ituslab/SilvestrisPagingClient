@@ -8,8 +8,7 @@
     "start": "webpack-dev-server"
   },
   "files": [
-    "dist/",
-    "src/index.js"
+    "dist/"
   ],
   "author": "itpolsri",
   "license": "ISC",

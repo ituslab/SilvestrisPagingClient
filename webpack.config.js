@@ -26,10 +26,5 @@ module.exports = {
         rules:[
             {test:/\.js$/ ,exclude:/node_modules/, loader:'babel-loader'}
         ]
-    },
-    plugins:[
-        new webpack.ProvidePlugin({
-            $: 'jquery'
-        })
-    ]
+    }
 }

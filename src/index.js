@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+
 function requestPage(
     pagingServerPath,
     pagingServerParam,
@@ -31,7 +34,7 @@ function requestPage(
                 Object.keys(v).forEach(x=>{
                     tdsEl += `<td>${v[x]}</td>`
                 })
-
+                
                 $(tBodyId).append(`
                     <tr>
                         ${tdsEl}
@@ -81,6 +84,7 @@ function requestPage(
             onError(err)
         })
 }
+
 export {
     requestPage
 }
