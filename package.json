@@ -2,13 +2,14 @@
   "name": "felis-silvestris-paging",
   "version": "1.0.14",
   "description": "Felis Silvestris paging client library",
-  "main": "./dist/index.bundle.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "src/index.js"
   ],
   "author": "itpolsri",
   "license": "ISC",
