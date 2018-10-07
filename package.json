@@ -1,6 +1,6 @@
 {
   "name": "felis-silvestris-paging",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Felis Silvestris paging client library",
   "main": "./dist/index.bundle.js",
   "scripts": {
