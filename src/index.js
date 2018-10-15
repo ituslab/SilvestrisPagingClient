@@ -4,10 +4,11 @@ import $ from 'jquery';
 function requestPage(
     pagingServerPath,
     pagingServerParam,
+    whichPage,
     htmlElOptions,
     onError
 ){
-    fetch(pagingServerPath+pagingServerParam)
+    fetch(pagingServerPath+`?${pagingServerParam}=${whichPage}`)
         .then(r=> r.json())
         .then(rJson=>{
             const {
@@ -48,7 +49,7 @@ function requestPage(
                 let newPageEl = document.createElement('a')
                 newPageEl.className = pageElChildClassName
                 $(newPageEl).on('click',ev=>{
-                    requestPage(pagingServerPath , `?page=${e}` , htmlElOptions , onError)
+                    requestPage(pagingServerPath , pagingServerParam , e , htmlElOptions , onError)
                 })
                 newPageEl.innerHTML = e
 
@@ -63,7 +64,7 @@ function requestPage(
                 newPageEl.className = pageElChildClassName
                 newPageEl.innerHTML = 'BACK'
                 $(newPageEl).on('click',e=>{
-                    requestPage(pagingServerPath , `?page=${beforeFirstEl}` , htmlElOptions, onError)
+                    requestPage(pagingServerPath , pagingServerParam , beforeFirstEl , htmlElOptions, onError)
                 })
                 $(pageElContainerId).prepend(newPageEl)
             }
@@ -74,7 +75,7 @@ function requestPage(
                 newPageEl.className = pageElChildClassName
                 newPageEl.innerHTML = 'NEXT'
                 $(newPageEl).on('click',e=>{
-                    requestPage(pagingServerPath , `?page=${lastEl}`,htmlElOptions , onError)
+                    requestPage(pagingServerPath ,pagingServerParam, lastEl,htmlElOptions , onError)
                 })
                 $(pageElContainerId).append(newPageEl)
             }
