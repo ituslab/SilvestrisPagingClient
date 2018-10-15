@@ -1,10 +1,10 @@
 const path = require("path")
 const UglifyJS = require('uglifyjs-webpack-plugin')
-const webpack = require('webpack')
 
 module.exports = {
     entry:{
         index: './src/index.js',
+        a: './src/a.js'
     },
     devtool: 'inline-source-map',
     output:{

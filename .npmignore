@@ -1,4 +1,4 @@
-dist/a.bundle.js
+dist
 node_modules
 src/a.js
 static

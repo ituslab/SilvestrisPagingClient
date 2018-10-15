@@ -1,6 +1,6 @@
 {
-  "name": "felis-silvestris-paging",
-  "version": "1.0.17",
+  "name": "@itpolsri/felis-silvestris-paging",
+  "version": "1.0.0",
   "description": "Felis Silvestris paging client library",
   "main": "./src/index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "repository": "github:itpolsri/SilvestrisPagingClient",
   "files": [
-    "dist/",
     "src/index.js"
   ],
   "author": "itpolsri",
