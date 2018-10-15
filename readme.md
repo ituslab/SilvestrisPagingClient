@@ -3,7 +3,7 @@
 ### How to use this ?
 
 ```
-import {requestPage} from 'felis-silvestris-paging';
+import {requestPage} from '@itpolsri/felis-silvestris-paging';
 
 const htmlEltOpts = {
     pageElContainerId: '#page-el-container',
