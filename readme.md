@@ -14,7 +14,8 @@ const htmlEltOpts = {
 ```
 
 ```
-requestPage('YOUR_SILVESTRIS_PAGING_ENDPOINT','SILVESTRIS_QUERY_PARAM',
+requestPage('YOUR_SILVESTRIS_PAGING_ENDPOINT','SILVESTRIS_QUERY_STRING_NAME',
+    SILVESTRIS_QUERY_STRING_VALUE,
     htmlEltOpts,
     err=>{
         console.error(err)
@@ -25,7 +26,8 @@ requestPage('YOUR_SILVESTRIS_PAGING_ENDPOINT','SILVESTRIS_QUERY_PARAM',
 
 `example:`
 ```
-requestPage('http://localhost:8080/Paging/api.php','?page=1',
+requestPage('http://localhost:8080/Paging/api.php','page',
+    1,
     htmlEltOpts,
     err=>{
         console.error(err)
